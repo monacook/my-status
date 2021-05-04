@@ -17,13 +17,20 @@ const StatusForm = () => {
     }
 ]);
 
+ const AddPost = (message) => {
+    const addPost = [
+      ...statusLists,
+      { status: message, createdAt: new Date().toLocaleTimeString() }
+    ];
+    setStatusLists(addPost);
+  };
+
 const HandleFormSubmit = (e) => {
     e.preventDefault();
-    setStatusLists([message]);
+    AddPost(message)
     setMessage("");
     console.log([statusLists]);
   };
-
 
 return (
     <div className="wrapper">
