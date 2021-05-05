@@ -39,9 +39,19 @@ return (
           type="text"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-        ></textarea>
+        required></textarea>
         <button>Post</button>
       </form>
+      <ul>
+        {statusLists.map((statusList) => (
+          <li key={statusList.index}>
+            <p>
+              {statusList.status}
+              <span>{statusList.createdAt}</span>
+            </p>
+          </li>
+        ))}
+      </ul>
     </div>
     )
 }
