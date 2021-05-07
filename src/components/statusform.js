@@ -38,9 +38,10 @@ return (
         <textarea
           type="text"
           value={message}
+          name="q"
           onChange={(e) => setMessage(e.target.value)}
         required></textarea>
-        <button>Post</button>
+        <button name="submit">Post</button>
       </form>
       <ul>
         {statusLists.map((statusList) => (
