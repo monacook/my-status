@@ -1,11 +1,16 @@
-const {Builder, By, Key, until} = require('selenium-webdriver');
-require("chromedriver");
+const { Builder } = require('selenium-webdriver')
+const safari = require('selenium-webdriver/safari')
+const proxy = require('selenium-webdriver/proxy')
+const options = new safari.Options()
+const proxyServer = "182.160.124.26:8081"
 
-async function example() {
-    let driver = await new Builder().forBrowser('chrome').build();
-    await driver.get("http://localhost:3001/");
-    await driver.findElement(By.name("q")).sendKeys("This is a test, but you dah best!");
-    await driver.findElement(By.name("submit")).click();   
-};
 
-example();
+const driver = new Builder()
+    .forBrowser('safari')
+    .setProxy(proxy.manual({
+        http: proxyServer,
+        https: proxyServer
+    }))
+    .build()
+
+    driver.get("https://www.google.com/")
