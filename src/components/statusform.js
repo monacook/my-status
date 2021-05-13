@@ -29,7 +29,6 @@ const HandleFormSubmit = (e) => {
     e.preventDefault();
     AddPost(message)
     setMessage("");
-    console.log([statusLists]);
   };
 
 return (
