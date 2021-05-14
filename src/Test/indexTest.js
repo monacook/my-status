@@ -1,11 +1,17 @@
-const {Builder, By, Key, until} = require('selenium-webdriver');
-require("chromedriver");
+const { Builder } = require('selenium-webdriver');
+require("chromedriver")
 
-async function example() {
-    let driver = await new Builder().forBrowser('chrome').build();
-    await driver.get("http://localhost:3001/");
-    await driver.findElement(By.name("q")).sendKeys("This is a test, but you dah best!");
-    await driver.findElement(By.name("submit")).click();   
-};
+const driver = new Builder()
+    .forBrowser("chrome")
+    .build();
 
-example();
+async function openWebsites() {
+    try{
+        await driver.get("http://yahoo.com");
+        await driver.get("http://google.com")
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+openWebsites();
