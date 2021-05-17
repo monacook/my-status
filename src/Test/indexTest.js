@@ -7,9 +7,8 @@ const driver = new Builder()
 
 async function example() {
     try {
-        await driver.get("https://rori4.github.io/selenium-practice/#/pages/practice/simple-registration");
-        await driver.findElement(By.name("email")).sendKeys("mfkaj01@gmail.com");
-        await driver.findElement(By.name("password")).sendKeys("fdafdafdafda");
+        await driver.get("http://localhost:3000/");
+        await driver.findElement(By.name("q")).sendKeys("This is a test!");
         await driver.findElement(By.name("submit")).click();
         
     } catch (error) {
